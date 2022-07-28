@@ -11,16 +11,24 @@
 
                         {{--Отображаем список категорий--}}
                         <div class="user-menu-sort-categories">
-                        @foreach($categories as $category)
                             <!--foreach-->
-                                <div class="user-menu-sort-category" data-id="{{$category->id}}">
-                                    <p class="user-menu-sort-category__border"> <x-category-settings :category="$category" /> </p>
+                            <div class="user-menu-sort-category" data-id="id категории">
+                                <p class="user-menu-sort-category__border"> Название категории </p>
+                                <!--Вложенность-->
+                                <div class="user-menu-sort-categories">
+                                    <!--foreach-->
+                                    <div class="user-menu-sort-category" data-id="id категории">
+                                        <p class="user-menu-sort-category__border"> Название категории </p>
+                                        ...
+                                    </div>
+                                    <!--endforeach-->
                                 </div>
-                                <!--endforeach-->
-                            @endforeach
+                                <!--END Вложенность-->
+                            </div>
+                            <!--endforeach-->
                         </div>
-                        {{--END Отображаем список категорий--}}
 
+                        {{--END Отображаем список категорий--}}
 
                         <hr>
                         <form action="{{ route('category.setting.save') }}" method="POST">
@@ -52,7 +60,6 @@
         $( function() {
             $( ".user-menu-sort-categories" ).sortable();
             $( ".user-menu-sort-categories" ).disableSelection();
-
             $( ".user-menu-sort-categories" ).droppable({
                 accept: ".user-menu-sort-category",
                 over: function( event, ui )//если фигура над клеткой- выделяем её границей
@@ -76,6 +83,5 @@
                 }
             });
         });
-
     </script>
 @endsection

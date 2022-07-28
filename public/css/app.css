@@ -10002,12 +10002,3 @@ h3 {
     border-color: #dee2e6;
   }
 }
-.user-menu-sort-category.ui-sortable-handle {
-    padding-left: 15px;
-}
-p.user-menu-sort-category__border {
-    border: 1px solid;
-    padding: 3px;
-    border-radius: 5px;
-    background: #fff;
-}

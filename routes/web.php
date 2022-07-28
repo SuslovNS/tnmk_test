@@ -20,8 +20,13 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Route::group(['prefix' => 'category', 'as' => 'category.'], function () {
 
     Route::get('/', [App\Http\Controllers\CategoryController::class, 'index'])->name('index');
+    Route::get('/search', [App\Http\Controllers\CategoryController::class, 'search'])->name('search');
 
     Route::get('setting', [App\Http\Controllers\CategoryController::class, 'settingIndex'])->name('setting.index');
     Route::post('setting', [App\Http\Controllers\CategoryController::class, 'settingSave'])->name('setting.save');
 
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
